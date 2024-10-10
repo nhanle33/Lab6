@@ -1,0 +1,72 @@
+struct BirthDay{
+    int day ;
+    int month ;
+    double year;
+};
+
+struct Student{
+    string ID;
+    string Name;
+    string Gender;
+    BirthDay Born;
+};
+
+struct  Node
+{
+    Student data;
+    Node* link;  
+};
+
+struct ListStudent
+{
+    Node* first;
+    Node* last;
+};
+void Initial(ListStudent &l){
+    l.first=l.last=NULL;
+}
+
+void InsertLast(ListStudent &l, const Student &student) {
+    Node* p = new Node;
+    p->data = student;
+    p->link = NULL;
+
+    if (l.first == NULL) {
+        l.first = p;
+        l.last = p;
+    } else {
+        l.last->link = p;
+        l.last = p;
+    }
+}
+
+void ShowListStudent(const ListStudent &l) {
+    Node* p = l.first;
+    while (p != NULL) {
+        cout << p->data.ID << "\t"
+             << p->data.Name << "\t"
+             << p->data.Gender << "\t"
+             << p->data.Born.month << "/" << p->data.Born.day << "/" << p->data.Born.year << endl;
+        p = p->link;
+    }
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
